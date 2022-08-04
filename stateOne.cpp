@@ -38,7 +38,7 @@ void StateOne::update(float timeElapsed)
 
 void StateOne::draw(sf::RenderWindow* window) 
 {
-	std::cout << " In StateOne.draw()\n";
+	//std::cout << " In StateOne.draw()\n";   //TEST
     window->draw(sprite_shooter);
 
 }
