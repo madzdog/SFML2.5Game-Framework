@@ -60,5 +60,8 @@
     <Image Include="assets\shooter.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\bg2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

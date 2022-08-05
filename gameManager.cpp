@@ -11,10 +11,11 @@ sf::Clock GameManager::_clock;
 GameManager::State GameManager::_state = Uninitialized;
 GameState* GameManager::_stateOne;
 GameState* GameManager::_stateTwo;
-//GameState* GameManager::_currentState;
+GameState* GameManager::_currentState;
 
 
-void GameManager::start() {
+void GameManager::start() 
+{
     if (_state != Uninitialized) return;
 
     // create main window
@@ -29,7 +30,10 @@ void GameManager::start() {
 
     _stateTwo = new StateTwo();
     _stateTwo->init();
-        
+     
+    _currentState = _stateOne;
+
+
     gameLoop();
 
  
@@ -39,20 +43,7 @@ void GameManager::start() {
 void GameManager::gameLoop()
 {
 
-    //
-
-    // load textures, fonts
-    sf::Texture texture1;
-    if (!texture1.loadFromFile("assets/shooter.bmp"))
-    {
-        std::cout << "ERROR could not load shooter.bmp";
-    }
-    sf::Sprite sprite_shooter;
-    sprite_shooter.setTexture(texture1);
-
-
-
-    bool exit = false;
+     bool exit = false;
 
     while (!exit)
     {
@@ -70,30 +61,38 @@ void GameManager::gameLoop()
                 _window.close();
                 exit = true;
             }
+            // HandleInputs in current state
+            _currentState->handleInput(&event);
         }
+            
+        
 
-        // Update our entities
-          //position shooter
-        sprite_shooter.setPosition(sf::Vector2f(500.f, 400.f)); // absolute position
-               
-        _stateOne->update(timeElapsed);
-
+        // Update our entities in the currentState
+        _currentState->update(timeElapsed);
 
 
-
-
-        // Draw our new entities
-        _window.draw(sprite_shooter);
-        _stateOne->draw(&_window);
-
+        // Draw our new entities in the currentState
+        _currentState->draw(&_window);
+         
 
         // display the updated frame in the window
         _window.display();
 
     }
  
-        //check game over flag
+        //check game over flag run endGameLogic
     
+}
+
+static void setState(GameManager::State s)
+{
+    //_state - s;
+}
+
+
+static GameState* getState()
+{
+//    return _state;
 }
 
 

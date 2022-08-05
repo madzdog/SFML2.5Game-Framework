@@ -16,7 +16,7 @@ public:
 	const static int SCREEN_HEIGHT = 1200;
 	static void start();
 	static void gameLoop();
-	enum State {Uninitialized, State1, State2};
+	enum State {Uninitialized, State1, State2,ExitGame};
 	static void setState(State s);
 	static GameState *getState();
 

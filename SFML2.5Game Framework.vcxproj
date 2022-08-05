@@ -152,6 +152,7 @@
     <ResourceCompile Include="SFML2.5GameWindow-RenderWindow.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\bg2.png" />
     <Image Include="assets\shooter.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
