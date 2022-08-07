@@ -30,6 +30,9 @@
     <ClCompile Include="stateTwo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="splashscreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -50,6 +53,9 @@
     <ClInclude Include="stateTwo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="splashscreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SFML2.5GameWindow-RenderWindow.rc">
@@ -61,6 +67,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\bg2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Biplane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\CoolBuster.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\madzdogSplash.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

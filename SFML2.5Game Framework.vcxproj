@@ -137,6 +137,7 @@
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="gameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="splashscreen.cpp" />
     <ClCompile Include="stateOne.cpp" />
     <ClCompile Include="stateTwo.cpp" />
   </ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="gameState.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="splashscreen.h" />
     <ClInclude Include="stateOne.h" />
     <ClInclude Include="stateTwo.h" />
   </ItemGroup>
@@ -153,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\bg2.png" />
+    <Image Include="assets\Biplane.png" />
+    <Image Include="assets\CoolBuster.png" />
+    <Image Include="assets\madzdogSplash.png" />
     <Image Include="assets\shooter.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

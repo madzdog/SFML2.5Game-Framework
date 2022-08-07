@@ -66,6 +66,7 @@ void StateOne::handleInput(sf::Event* event)
      //       break;
 
         // Mouse Button pressed
+            break;
         case sf::Event::MouseButtonPressed:
             if (event->mouseButton.button == sf::Mouse::Right)
             {
@@ -80,9 +81,7 @@ void StateOne::handleInput(sf::Event* event)
                 std::cout << "mouse y: " << event->mouseButton.y << std::endl;
             }
             break;
-
-            // no events this refresh
-        default:
+        default:              // no events this refresh
             break;
     }   // end of switch
 
