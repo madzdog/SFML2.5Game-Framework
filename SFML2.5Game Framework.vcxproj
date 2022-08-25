@@ -137,6 +137,7 @@
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="gameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menuscreen.cpp" />
     <ClCompile Include="splashscreen.cpp" />
     <ClCompile Include="stateOne.cpp" />
     <ClCompile Include="stateTwo.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="gameState.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="menuscreen.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="splashscreen.h" />
     <ClInclude Include="stateOne.h" />
@@ -159,6 +161,9 @@
     <Image Include="assets\CoolBuster.png" />
     <Image Include="assets\madzdogSplash.png" />
     <Image Include="assets\shooter.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="GameStrategy.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

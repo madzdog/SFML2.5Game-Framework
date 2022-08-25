@@ -16,7 +16,7 @@ public:
 	const static int SCREEN_HEIGHT = 1200;
 	static void start();
 	static void gameLoop();
-	enum State {Uninitialized, SplashScreen, State1, State2,ExitGame};
+	enum State {Uninitialized, SplashScreen, MenuScreen, State1, State2,ExitGame};
 	static void setState(State s);
 	static GameState *getState();
 
@@ -24,6 +24,7 @@ private:
 	static State _state;
 	static GameState* _currentState;
 	static GameState* _splashscreen;
+	static GameState* _menuscreen;
 	static GameState * _stateOne;
 	static GameState * _stateTwo;
 	static sf::RenderWindow _window;

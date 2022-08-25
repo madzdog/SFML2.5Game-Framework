@@ -26,7 +26,8 @@ void Splashscreen::handleInput(sf::Event* event)
     if (event->type == sf::Event::KeyPressed || event->type == sf::Event::MouseButtonPressed)
     {
         // set new state = stateOne setState(GameManager::State s)
-        GameManager::setState(GameManager:: State1);
+        //GameManager::setState(GameManager:: State1);
+        GameManager::setState(GameManager::MenuScreen);
     }
 }
 

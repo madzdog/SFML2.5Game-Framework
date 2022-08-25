@@ -41,6 +41,15 @@ void StateOne::init()
 
 void StateOne::handleInput(sf::Event* event)
 {
+     //if (event->type == sf::Event::Closed)
+     //{
+     //    _window.close();
+     //    exit = true;
+     //}
+
+
+
+
     // check for key input events
     switch (event->type)
     {
@@ -93,12 +102,7 @@ void StateOne::handleInput(sf::Event* event)
 
 
     // 
-    // move the sprite_shooter
-   // if (event->type == sf::Event::Closed)
-   // {
-    //    _window.close();
-    //    exit = true;
-  //  }
+ 
 }
 
 void StateOne::update(float timeElapsed)

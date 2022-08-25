@@ -1,0 +1,133 @@
+The game framework is based on a most excellent example PANG game 
+published on Achiev as "Game from scratch with C++ and SFML" 
+by Mathilde E.
+I am doing this as a learning exercise - so may be "klugie"
+
+The idea is to have an Object oriented framework that can be 
+modified and and extended for 2D games. 
+
+The main() just calls the gameManager class. 
+The gameManager class:
+	1. creates the main window, sets its size, frame rate
+	2. instantiates each scene in the game, each scene is handled by
+		a state class (a state.h and state.cpp for each scene)
+		the state class is defined in the states's header file and 
+		implemented in 	the state's .cpp code file. 
+		in addition to instantiate, the gameManager also calls the 
+		initialization function in each scene's class.
+	3. sets the games beginning scene, usually the splash screen.
+	4. contains the gameloop(), which is called once for each frame,
+	(usually 60 frames per second).
+	5. The gameloop():
+		a.checks for end of game
+		b.restarts a timeElapsed clock
+		c.clears the current game window
+		d.sets the current state to the proper scene
+		e.handles window close event
+		f.handles inputs for the current scene by calling that 
+			scenes handleInput()
+		g.updates the entities in the current scene by 
+			calling that scenes class update()
+		h.draws the entities in the current scene's window
+		i.displays the current scene's window
+Scenes ( states)
+	Each new scene in the framework is handled by a state class 
+	derived from gameState class. 
+	Implemented in a state.h and a state.cpp
+	Example scenes are : splashscreen, menuscreen, exitscreen, 
+					sceneOne, sceneTwo, etc.
+	Each state class has the functions:
+		void init()
+		void handleInput(sf::Event* event)
+		void update(float timeElapsed) 
+		void draw(sf::RenderWindow* window)
+		void endGameLogic()
+	These are called from the gameManger gameloop(). 
+
+	Adding a new scene: 
+	 Example using a menuscreen.
+	 1. in gameManager.h add MenuScreen to the enum State list. 
+	  ( note the MenuScreen state name must be different from the class name, 
+	    which will be Menuscreen)
+	 2. in gameManager.h declare private variable pointer to the Menuscreen instance
+			static GameState *_menuscreen;
+
+	3. create a Menuscreen class derived from GameState 
+	   add a menuscreen.h file: 
+		#ifndef MENUSCREEN_H
+		#define MENUSCREEN_H
+
+		#include "gameState.h"
+		class Menuscreen : public GameState
+		{
+			void init() override;
+			void handleInput(sf::Event* event) override;
+			void update(float timeElapsed) override;
+			void draw(sf::RenderWindow* window) override;
+			void endGameLogic() override;
+		};
+		#endif //MENUSCREEN_H
+
+   and a skeleton menuscreen.cpp file:
+		#include "menuscreen.h"
+		#include "gameManager.h"
+		#include <iostream>
+
+		// define Sprites and Textures
+		//sf::Sprite 
+		//sf::Texture 
+
+		void Menuscreen::init()
+		{
+			std::cout << " In Menuscreen.Init()\n";   //TEST
+			// load textures, fonts
+			// load texture files
+			// set texture for sprites
+
+			//set inital position of sprites
+    
+		}
+
+		void Menuscreen::handleInput(sf::Event* event)
+		{
+			std::cout << " In Menuscreen Init()\n";   // TEST
+			// handle inputs, keystrokes, mouse button etc.
+
+		}
+
+		void Menuscreen::update(float timeElapsed)
+		{
+			std::cout << " In Menuscreen.update()\n";  //TEST
+		}
+
+		void Menuscreen::draw(sf::RenderWindow* window)
+		{
+			std::cout << " In Menuscreen.draw()\n";
+    
+		}
+
+		void Menuscreen::endGameLogic()
+		{
+
+		}   
+
+
+		
+	4. in gameManager.cpp:
+		add include for menuscreen.h
+		Instantiate pointer to the _menuscreen, 
+			GameState* GameManager::_menuscreen;
+		call the init()
+		    _menuscreen = new Menuscreen();  // add menuscreen.h
+			_menuscreen->init();
+
+		add this new state - _menuscreen to the switch statement
+		 case GameManager::MenuScreen:
+            _currentState = _menuscreen;
+            break;
+
+	Add appropriate code in each scenes HandleInput() or Update()
+	to call the desired next scene:
+	// set new state = stateOne setState(GameManager::State s)
+        GameManager::setState(GameManager:: State1);
+
